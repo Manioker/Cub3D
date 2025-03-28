@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvacca <anvacca@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 13:21:39 by anvacca           #+#    #+#             */
-/*   Updated: 2025/03/28 13:41:35 by anvacca          ###   ########.fr       */
+/*   Updated: 2025/03/28 14:33:06 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int main()
+int main(int argc, char **argv)
 {
+	check_args(argc, argv, 0);
 	return (0);
 }
