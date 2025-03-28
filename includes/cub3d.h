@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvacca <anvacca@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 13:23:22 by anvacca           #+#    #+#             */
-/*   Updated: 2025/03/28 14:10:44 by anvacca          ###   ########.fr       */
+/*   Updated: 2025/03/28 14:40:10 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ bool	error_args(const unsigned int error);
 
 //UTILS
 int	ft_strlen(char *str);
-int	ft_strncmp(char *str1, char *str2, size_t size);
+int	ft_strcmp(const char *str1, const char *str2);
 
 #endif
