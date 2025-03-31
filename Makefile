@@ -6,7 +6,7 @@
 #    By: anvacca <anvacca@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/28 13:19:10 by anvacca           #+#    #+#              #
-#    Updated: 2025/03/28 14:09:19 by anvacca          ###   ########.fr        #
+#    Updated: 2025/03/31 12:07:59 by anvacca          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,14 +36,14 @@ MINILIBX	:=	includes/.MiniLibX
 
 # Variables
 CC			:=	cc
-CFLAGS		:=  -Wall -Wextra -Iincludes -Iincludes/.MiniLibX -O2
+CFLAGS		:=  -Wall -Wextra -Iincludes -O2
 LIBXFLAGS	:=	-L${MINILIBX} -lmlx -lX11 -lXext -lm
 
 # Makefile
-all:			init_submodules | ${EXE}
+all:	clone_mlx	| ${EXE}
 
-init_submodules:
-				@git submodule update --init --recursive > /dev/null
+clone_mlx:
+	git submodule update --init --recursive
 
 ${EXE}:			${OBJECTS}
 				@${MAKE} -C ${MINILIBX} > /dev/null 2>&1
