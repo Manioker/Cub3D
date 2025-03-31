@@ -6,7 +6,7 @@
 #    By: anvacca <anvacca@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/28 13:19:10 by anvacca           #+#    #+#              #
-#    Updated: 2025/03/31 12:07:59 by anvacca          ###   ########.fr        #
+#    Updated: 2025/03/31 12:10:32 by anvacca          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ UTILS		:=	ft_strcmp.c		\
 				ft_strlen.c		\
 
 
-SOURCES		:= ${SRC} ${PARSING}
+SOURCES		:= ${SRC} ${PARSING} ${UTILS}
 OBJ_DIR		:= obj
 OBJECTS		:=	${SOURCES:%.c=${OBJ_DIR}/%.o}
 
