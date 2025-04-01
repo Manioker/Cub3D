@@ -6,18 +6,25 @@
 #    By: anvacca <anvacca@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/28 13:19:10 by anvacca           #+#    #+#              #
-#    Updated: 2025/03/31 12:10:32 by anvacca          ###   ########.fr        #
+#    Updated: 2025/03/31 13:35:13 by anvacca          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Program Executable
 EXE			:=	cub3d
 
-VPATH		:=	src \
-				src/parsing \
-				src/utils \
+VPATH		:=	src											\
+				src/parsing									\
+				src/utils									\
+				src/game : src/game/init : src/game/display	\
 
-SRC			:=	main.c
+SRC			:=	main.c			\
+
+MLX			:=	game_loop.c 	\
+				init_window.c	\
+				init_image.c	\
+				scene.c	\
+
 
 PARSING		:=	check_args.c	\
 				error_args.c	\
@@ -27,7 +34,7 @@ UTILS		:=	ft_strcmp.c		\
 				ft_strlen.c		\
 
 
-SOURCES		:= ${SRC} ${PARSING} ${UTILS}
+SOURCES		:= ${SRC} ${PARSING} ${UTILS} ${MLX}
 OBJ_DIR		:= obj
 OBJECTS		:=	${SOURCES:%.c=${OBJ_DIR}/%.o}
 
@@ -36,14 +43,14 @@ MINILIBX	:=	includes/.MiniLibX
 
 # Variables
 CC			:=	cc
-CFLAGS		:=  -Wall -Wextra -Iincludes -O2
+CFLAGS		:=  -Wall -Wextra -Iincludes -Iincludes/.MiniLibX -O2
 LIBXFLAGS	:=	-L${MINILIBX} -lmlx -lX11 -lXext -lm
 
 # Makefile
-all:	clone_mlx	| ${EXE}
+all:			init_submodules | ${EXE}
 
-clone_mlx:
-	git submodule update --init --recursive
+init_submodules:
+				@git submodule update --init --recursive > /dev/null
 
 ${EXE}:			${OBJECTS}
 				@${MAKE} -C ${MINILIBX} > /dev/null 2>&1

@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_args.c                                       :+:      :+:    :+:   */
+/*   init_image.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anvacca <anvacca@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/28 13:36:35 by anvacca           #+#    #+#             */
-/*   Updated: 2025/03/31 12:17:34 by anvacca          ###   ########.fr       */
+/*   Created: 2025/03/31 12:55:25 by anvacca           #+#    #+#             */
+/*   Updated: 2025/03/31 13:09:30 by anvacca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-bool	error_args(const unsigned int error)
+void	init_image(t_mlx *mlx)
 {
-	if (error == 1)
-		printf(RED"Not enough arguments!\n"RESET);
-	else if (error == 2)
-		printf(RED"Too many arguments!\n"RESET);
-	else if (error == 3)
-		printf(RED"Wrong arguments!\n"RESET);
-	else if (error == 4)
-		printf(RED"File is a directory!\n"RESET);
-	else if (error == 5)
-		printf(RED"File not found!\n"RESET);
-	return (false);
+	mlx->data.img = mlx_new_image(mlx->mlx, WINDOW_X, WINDOW_Y);
+	mlx->data.addr = mlx_get_data_addr(mlx->data.img,
+			&mlx->data.bits_per_pixel, 
+			&mlx->data.line_length,
+			&mlx->data.endian);
 }
