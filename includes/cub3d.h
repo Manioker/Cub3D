@@ -6,7 +6,7 @@
 /*   By: anvacca <anvacca@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 13:23:22 by anvacca           #+#    #+#             */
-/*   Updated: 2025/03/31 14:30:28 by anvacca          ###   ########.fr       */
+/*   Updated: 2025/04/01 13:19:54 by anvacca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,23 @@ typedef struct s_game
 	float	diry;
 	float	planex;
 	float	planey;
+	float	raydirx;
+	float	raydiry;
 	int		mapx;
 	int		mapy;
 	float	sidedistx;
 	float	sidedisty;
+	float	deltadistx;
+	float	deltadisty;
+	float	perpwalldist;
+	int		stepx;
+	int		stepy;
+	int		hit;
+	int		side;
+	int		lineheigth;
+	int		drawstart;
+	int		drawend;
+	
 } t_game;
 
 typedef struct s_main_s

@@ -6,7 +6,7 @@
 #    By: anvacca <anvacca@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/28 13:19:10 by anvacca           #+#    #+#              #
-#    Updated: 2025/03/31 13:35:13 by anvacca          ###   ########.fr        #
+#    Updated: 2025/04/01 14:00:34 by anvacca          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,9 @@ SRC			:=	main.c			\
 MLX			:=	game_loop.c 	\
 				init_window.c	\
 				init_image.c	\
-				scene.c	\
+				scene.c			\
+				raycasting.c	\
+				display_wall.c	\
 
 
 PARSING		:=	check_args.c	\
