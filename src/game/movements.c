@@ -6,7 +6,7 @@
 /*   By: anvacca <anvacca@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 11:56:14 by anvacca           #+#    #+#             */
-/*   Updated: 2025/04/04 13:11:36 by anvacca          ###   ########.fr       */
+/*   Updated: 2025/04/04 13:20:20 by anvacca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,15 +70,15 @@ static void	side_move(t_game *game, int key, float speed)
 void	movements(t_game *game)
 {
 	if (game->movement[0] == true)
-		move(game, KEY_W, 0.01);
+		move(game, KEY_W, 0.005);
 	if (game->movement[1] == true)
-		move(game, KEY_S, 0.01);
+		move(game, KEY_S, 0.005);
 	if (game->movement[2])
-		side_move(game, KEY_A, 0.01);
+		side_move(game, KEY_A, 0.005);
 	if (game->movement[3])
-		side_move(game, KEY_D, 0.01);
+		side_move(game, KEY_D, 0.005);
 	if (game->movement[4] == true)
-		rotate(game, 0.01);
+		rotate(game, 0.005);
 	if (game->movement[5] == true)
-		rotate(game, -0.01);
+		rotate(game, -0.005);
 }
