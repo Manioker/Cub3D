@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvacca <anvacca@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 13:23:22 by anvacca           #+#    #+#             */
 /*   Updated: 2025/04/04 13:10:05 by anvacca          ###   ########.fr       */
@@ -97,6 +97,11 @@ int					ft_strlen(char *str);
 // PARSING
 bool				check_args(int argc, char **argv, int *fd);
 bool				error_args(const unsigned int error);
+bool				parser(int argc, char **argv);
+char				*ft_strdup(char *str);
+char				*ft_strjoinfr(char *s1, char *s2);
+char				*ft_strchr(char *s, int c);
+char				*get_next_line(int fd);
 
 // MLX
 void				game_loop(t_mlx *mlx, t_game *game);
