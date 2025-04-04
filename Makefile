@@ -6,7 +6,7 @@
 #    By: anvacca <anvacca@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/28 13:19:10 by anvacca           #+#    #+#              #
-#    Updated: 2025/04/01 14:00:34 by anvacca          ###   ########.fr        #
+#    Updated: 2025/04/04 12:28:57 by anvacca          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,12 +20,14 @@ VPATH		:=	src											\
 
 SRC			:=	main.c			\
 
-MLX			:=	game_loop.c 	\
+GAME		:=	game_loop.c 	\
 				init_window.c	\
 				init_image.c	\
 				scene.c			\
 				raycasting.c	\
 				display_wall.c	\
+				commands.c		\
+				movements.c		\
 
 
 PARSING		:=	check_args.c	\
@@ -36,7 +38,7 @@ UTILS		:=	ft_strcmp.c		\
 				ft_strlen.c		\
 
 
-SOURCES		:= ${SRC} ${PARSING} ${UTILS} ${MLX}
+SOURCES		:= ${SRC} ${PARSING} ${UTILS} ${GAME}
 OBJ_DIR		:= obj
 OBJECTS		:=	${SOURCES:%.c=${OBJ_DIR}/%.o}
 

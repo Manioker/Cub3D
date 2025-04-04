@@ -6,7 +6,7 @@
 /*   By: anvacca <anvacca@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 11:52:21 by anvacca           #+#    #+#             */
-/*   Updated: 2025/04/01 14:32:11 by anvacca          ###   ########.fr       */
+/*   Updated: 2025/04/04 12:39:05 by anvacca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,18 @@
 
 int cycle(t_main_s *main_s)
 {
+	movements(main_s->game);
 	scene(main_s->mlx);
 	raycasting(main_s->mlx, main_s->game);
-	
 	mlx_put_image_to_window(main_s->mlx->mlx, main_s->mlx->mlx_win, main_s->mlx->data.img, 0, 0);
 	return (0);
 }
 
 void init_game(t_game *game)
 {
+	int i;
+
+	i = 0;
 	game->map[0] = "1111111111";
 	game->map[1] = "1000000001";
 	game->map[2] = "1000000001";
@@ -31,9 +34,8 @@ void init_game(t_game *game)
 	game->map[5] = "1000011111";
 	game->map[6] = "1000000001";
 	game->map[7] = "1000000001";
-	game->map[8] = "1000000001";
-	game->map[9] = "1111111111";
-	game->map[10] = NULL;
+	game->map[8] = "1111111111";
+	game->map[9] = NULL;
 	game->first_posx = 7;
 	game->first_posy = 7;
 	game->posx = 7;
@@ -43,6 +45,8 @@ void init_game(t_game *game)
 	game->planex = 0;
 	game->planey = 0.66;
 	game->hit = 0;
+	while (i++ < 6)
+		game->movement[i] = false;
 }
 
 void game_loop(t_mlx *mlx, t_game *game)
@@ -54,7 +58,8 @@ void game_loop(t_mlx *mlx, t_game *game)
 	init_game(game);
 	init_window(mlx);
 	init_image(mlx);
-	mlx_hook(mlx->mlx_win, 02, (1L<<0), handle_key_press(), &main_s);
+	mlx_hook(mlx->mlx_win, 02, (1L<<0), handle_key_press, game);
+	mlx_hook(mlx->mlx_win, 03, (1L<<1), handle_key_release, game);
 	mlx_loop_hook(mlx->mlx, cycle, &main_s);
 	mlx_loop(mlx->mlx);
 }

@@ -6,7 +6,7 @@
 /*   By: anvacca <anvacca@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 13:23:22 by anvacca           #+#    #+#             */
-/*   Updated: 2025/04/01 13:19:54 by anvacca          ###   ########.fr       */
+/*   Updated: 2025/04/04 13:10:05 by anvacca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,18 @@
 # define WINDOW_X 1280
 # define WINDOW_Y 720
 
+# define KEY_ESC 65307
+# define KEY_ARROW_LEFT 65361
+# define KEY_ARROW_RIGHT 65363
+# define KEY_E 101
+# define KEY_W 119
+# define KEY_A 97
+# define KEY_S 115
+# define KEY_D 100
+# define KEY_TAB 9
+
+# define MOVE_SPEED 0.005
+
 struct				s_data
 {
 	void			*img;
@@ -45,43 +57,42 @@ typedef struct s_mlx
 
 typedef struct s_game
 {
-	char	*map[10];
-	int		first_posx;
-	int		first_posy;
-	float	posx;
-	float	posy;
-	float	dirx;
-	float	diry;
-	float	planex;
-	float	planey;
-	float	raydirx;
-	float	raydiry;
-	int		mapx;
-	int		mapy;
-	float	sidedistx;
-	float	sidedisty;
-	float	deltadistx;
-	float	deltadisty;
-	float	perpwalldist;
-	int		stepx;
-	int		stepy;
-	int		hit;
-	int		side;
-	int		lineheigth;
-	int		drawstart;
-	int		drawend;
-	
-} t_game;
+	char			*map[10];
+	int				first_posx;
+	int				first_posy;
+	float			posx;
+	float			posy;
+	float			dirx;
+	float			diry;
+	float			planex;
+	float			planey;
+	float			raydirx;
+	float			raydiry;
+	int				mapx;
+	int				mapy;
+	float			sidedistx;
+	float			sidedisty;
+	float			deltadistx;
+	float			deltadisty;
+	float			perpwalldist;
+	int				stepx;
+	int				stepy;
+	int				hit;
+	int				side;
+	int				lineheigth;
+	int				drawstart;
+	int				drawend;
+	bool			movement[6];
+}					t_game;
 
 typedef struct s_main_s
 {
-	t_game	*game;
-	t_mlx	*mlx;
-} t_main_s;
+	t_game			*game;
+	t_mlx			*mlx;
+}					t_main_s;
 
 // UTILS
 int					ft_strlen(char *str);
-int					ft_strncmp(char *str1, char *str2, size_t size);
 
 // PARSING
 bool				check_args(int argc, char **argv, int *fd);
@@ -92,5 +103,9 @@ void				game_loop(t_mlx *mlx, t_game *game);
 bool				init_window(t_mlx *mlx);
 void				init_image(t_mlx *mlx);
 void				scene(t_mlx *mlx);
+int					handle_key_press(int keycode, t_game *game);
+int					handle_key_release(int keycode, t_game *game);
+void				movements(t_game *game);
+void				raycasting(t_mlx *mlx, t_game *game);
 
 #endif
