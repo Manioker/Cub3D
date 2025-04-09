@@ -6,7 +6,7 @@
 /*   By: anvacca <anvacca@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:08:59 by anvacca           #+#    #+#             */
-/*   Updated: 2025/04/01 14:19:14 by anvacca          ###   ########.fr       */
+/*   Updated: 2025/04/09 17:01:44 by anvacca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,21 +75,6 @@ void	calculate_wall(t_game *game)
 		game->drawend = WINDOW_Y - 1;
 }
 
-static void caca(t_game *game, t_mlx *mlx, int x)
-{
-	int y = game->drawstart;
-	while (y < game->drawend)
-	{
-		if (game->side == 1)
-			*(unsigned int *)(mlx->data.addr + (y * mlx->data.line_length + x
-				* (mlx->data.bits_per_pixel / 8))) = 0x0000FF;
-		else
-			*(unsigned int *)(mlx->data.addr + (y * mlx->data.line_length + x
-					* (mlx->data.bits_per_pixel / 8))) = 0x6060FF;
-		y++;
-	}
-}
-
 void	raycasting(t_mlx *mlx, t_game *game)
 {
 	int		x;
@@ -108,7 +93,7 @@ void	raycasting(t_mlx *mlx, t_game *game)
 		perform_ray(game);
 		perform_dda(game);
 		calculate_wall(game);
-		caca(game, mlx, x);
+		display_wall(mlx, game, x);
 		x++;
 	}
 }
