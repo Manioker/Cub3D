@@ -1,0 +1,6 @@
+obj
+cub3d
+*.swo
+*.swp
+*.out
+.vscode
