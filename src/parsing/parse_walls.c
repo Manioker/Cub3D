@@ -6,7 +6,7 @@
 /*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 08:28:38 by rothiery          #+#    #+#             */
-/*   Updated: 2025/04/10 14:34:23 by rothiery         ###   ########.fr       */
+/*   Updated: 2025/04/10 15:28:18 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,20 +36,21 @@ static unsigned int	key_find(char *line)
 	return (ERR);
 }
 
-static bool	set_fd2(unsigned int key, int fd, t_game *game, unsigned char *octal)
+static bool	set_fd2(unsigned int key, char *line, t_game *game, unsigned char *octal)
 {
-	if (fd <= 0)
-		return (false);
+	char	*copy;
+
+	copy = ft_strdup(line);
 	if (((*octal << key) & 1) == 1)
 		return (printf("already defined\n"), false);
 	else if (key == KEY_NO)
-		game->no_fd = fd;
+		game->no_path = copy;
 	else if (key == KEY_SO)
-		game->so_fd = fd;
+		game->so_path = copy;
 	else if (key == KEY_EA)
-		game->ea_fd = fd;
+		game->ea_path = copy;
 	else if (key == KEY_WE)
-		game->we_fd = fd;
+		game->we_path = copy;
 	*octal = *octal + (1 << key);
 	return (true);
 }
@@ -73,16 +74,8 @@ static bool	set_fd(unsigned int key, char *line, t_game *game, unsigned char *oc
 		i += 2;
 		while (line[i] == ' ')
 			i++;
-		return (set_fd2(key, open(line + i, O_RDONLY), game, octal));
+		return (set_fd2(key, line + i, game, octal));
 	}
-}
-
-static void	init_game(t_game *game)
-{
-	game->no_fd = 0;
-	game->so_fd = 0;
-	game->ea_fd = 0;
-	game->we_fd = 0;
 }
 
 bool	parse_walls(int fd, t_game *game)
@@ -91,7 +84,6 @@ bool	parse_walls(int fd, t_game *game)
 	unsigned int	key;
 	unsigned char	octal;
 
-	init_game(game);
 	octal = 0;
 	line = get_next_line(fd);
 	while (line)
