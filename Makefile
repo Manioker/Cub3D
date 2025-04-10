@@ -6,7 +6,7 @@
 #    By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/28 13:19:10 by anvacca           #+#    #+#              #
-#    Updated: 2025/04/10 14:17:15 by rothiery         ###   ########.fr        #
+#    Updated: 2025/04/10 15:07:42 by rothiery         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,11 +24,13 @@ SRC			:=	main.c			\
 GAME		:=	game_loop.c 	\
 				init_window.c	\
 				init_image.c	\
+				init_texture.c	\
 				scene.c			\
 				raycasting.c	\
 				display_wall.c	\
 				commands.c		\
 				movements.c		\
+				end_game.c		\
 
 
 PARSING		:=	check_args.c	\

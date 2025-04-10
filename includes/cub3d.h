@@ -6,7 +6,7 @@
 /*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 13:23:22 by anvacca           #+#    #+#             */
-/*   Updated: 2025/04/10 14:32:22 by rothiery         ###   ########.fr       */
+/*   Updated: 2025/04/10 15:05:19 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@
 # define KEY_D 100
 # define KEY_TAB 9
 
-# define MOVE_SPEED 0.005
+# define MOVE_SPEED 0.007f
 
 typedef enum e_type
 {
@@ -51,21 +51,33 @@ typedef enum e_type
 	ERR,
 }	t_type;
 
-struct				s_data
+struct					s_texture
 {
-	void			*img;
-	char			*addr;
-	int				bits_per_pixel;
-	int				line_length;
-	int				endian;
+	void				*img;
+	int					*data;
+	int					width;
+	int					height;
+	int					bits_per_pixel;
+	int					line_length;
+	int					endian;
+};
+
+struct					s_data
+{
+	void				*img;
+	char				*addr;
+	int					bits_per_pixel;
+	int					line_length;
+	int					endian;
 };
 
 typedef struct s_mlx
 {
-	void			*mlx;
-	void			*mlx_win;
-	struct s_data	data;
-}					t_mlx;
+	void				*mlx;
+	void				*mlx_win;
+	struct s_texture	texture[4];
+	struct s_data		data;
+}						t_mlx;
 
 typedef struct s_game
 {
@@ -76,6 +88,15 @@ typedef struct s_game
 	int				c_color;
 	int				f_color;
 	char			*map[10];
+	char			*no_path;
+	char			*so_path;
+	char			*we_path;
+	char			*ea_path;
+	float			step;
+	float			texture_pos;
+	int				texture_y;
+	int				find_texture;
+	int				texture_x;
 	int				first_posx;
 	int				first_posy;
 	float			posx;
@@ -105,9 +126,9 @@ typedef struct s_game
 
 typedef struct s_main_s
 {
-	t_game			*game;
-	t_mlx			*mlx;
-}					t_main_s;
+	t_game				*game;
+	t_mlx				*mlx;
+}						t_main_s;
 
 // UTILS
 int					ft_strlen(char *str);
@@ -128,13 +149,16 @@ char				*get_next_line(int fd);
 bool				parse_walls(int fd, t_game *game);
 
 // MLX
-void				game_loop(t_mlx *mlx, t_game *game);
-bool				init_window(t_mlx *mlx);
-void				init_image(t_mlx *mlx);
-void				scene(t_mlx *mlx);
-int					handle_key_press(int keycode, t_game *game);
-int					handle_key_release(int keycode, t_game *game);
-void				movements(t_game *game);
-void				raycasting(t_mlx *mlx, t_game *game);
+void					game_loop(t_mlx *mlx, t_game *game);
+bool					init_window(t_mlx *mlx);
+void					init_image(t_mlx *mlx);
+void					scene(t_mlx *mlx);
+int						handle_key_press(int keycode, t_main_s *main_s);
+int						handle_key_release(int keycode, t_game *game);
+void					movements(t_game *game);
+void					raycasting(t_mlx *mlx, t_game *game);
+int						end_game(t_main_s *main_s);
+void					display_wall(t_mlx *mlx, t_game *game, unsigned int x);
+bool					init_texture(t_mlx *mlx, t_game *game);
 
 #endif

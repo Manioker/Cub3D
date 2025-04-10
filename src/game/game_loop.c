@@ -6,7 +6,7 @@
 /*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 11:52:21 by anvacca           #+#    #+#             */
-/*   Updated: 2025/04/10 09:29:04 by rothiery         ###   ########.fr       */
+/*   Updated: 2025/04/10 15:08:23 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,6 @@ int cycle(t_main_s *main_s)
 
 void init_game(t_game *game)
 {
-	int i;
-
-	i = 0;
 	game->map[0] = "1111111111";
 	game->map[1] = "1000000001";
 	game->map[2] = "1000000001";
@@ -45,8 +42,16 @@ void init_game(t_game *game)
 	game->planex = 0;
 	game->planey = 0.66;
 	game->hit = 0;
-	while (i++ < 6)
-		game->movement[i] = false;
+	game->movement[0] = false;
+	game->movement[1] = false;
+	game->movement[2] = false;
+	game->movement[3] = false;
+	game->movement[4] = false;
+	game->movement[5] = false;
+	game->no_path = "src/debug_no.xpm";
+	game->so_path = "src/debug_so.xpm";
+	game->ea_path = "src/debug_ea.xpm";
+	game->we_path = "src/debug_we.xpm";
 }
 
 void game_loop(t_mlx *mlx, t_game *game)
@@ -57,9 +62,12 @@ void game_loop(t_mlx *mlx, t_game *game)
 	main_s.mlx = mlx;
 	init_game(game);
 	init_window(mlx);
+	if (!init_texture(mlx, game))
+		end_game(&main_s);
 	init_image(mlx);
-	mlx_hook(mlx->mlx_win, 02, (1L<<0), handle_key_press, game);
+	mlx_hook(mlx->mlx_win, 02, (1L<<0), handle_key_press, &main_s);
 	mlx_hook(mlx->mlx_win, 03, (1L<<1), handle_key_release, game);
 	mlx_loop_hook(mlx->mlx, cycle, &main_s);
+	mlx_hook(mlx->mlx_win, 17, 0L, end_game, &main_s);
 	mlx_loop(mlx->mlx);
 }
