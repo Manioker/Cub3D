@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: anvacca <anvacca@student.42.fr>            +#+  +:+       +#+         #
+#    By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/28 13:19:10 by anvacca           #+#    #+#              #
-#    Updated: 2025/04/04 12:28:57 by anvacca          ###   ########.fr        #
+#    Updated: 2025/04/10 14:17:15 by rothiery         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ EXE			:=	cub3d
 
 VPATH		:=	src											\
 				src/parsing									\
+				src/parsing/gnl								\
 				src/utils									\
 				src/game : src/game/init : src/game/display	\
 
@@ -33,9 +34,15 @@ GAME		:=	game_loop.c 	\
 PARSING		:=	check_args.c	\
 				error_args.c	\
 				parser.c		\
+				parse_walls.c	\
 
 UTILS		:=	ft_strcmp.c		\
 				ft_strlen.c		\
+				get_next_line.c	\
+				gnl_utils.c		\
+				ft_getcolor.c	\
+				ft_atoi.c		\
+
 
 
 SOURCES		:= ${SRC} ${PARSING} ${UTILS} ${GAME}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvacca <anvacca@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 11:52:21 by anvacca           #+#    #+#             */
-/*   Updated: 2025/04/04 12:39:05 by anvacca          ###   ########.fr       */
+/*   Updated: 2025/04/10 09:29:04 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void init_game(t_game *game)
 void game_loop(t_mlx *mlx, t_game *game)
 {
 	t_main_s	main_s;
-	
+
 	main_s.game = game;
 	main_s.mlx = mlx;
 	init_game(game);

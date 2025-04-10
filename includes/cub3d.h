@@ -6,7 +6,7 @@
 /*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 13:23:22 by anvacca           #+#    #+#             */
-/*   Updated: 2025/04/04 13:10:05 by anvacca          ###   ########.fr       */
+/*   Updated: 2025/04/10 14:32:22 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,18 @@
 
 # define MOVE_SPEED 0.005
 
+typedef enum e_type
+{
+	EMPTY,
+	KEY_NO,
+	KEY_SO,
+	KEY_EA,
+	KEY_WE,
+	KEY_F,
+	KEY_C,
+	ERR,
+}	t_type;
+
 struct				s_data
 {
 	void			*img;
@@ -57,6 +69,12 @@ typedef struct s_mlx
 
 typedef struct s_game
 {
+	int				no_fd;
+	int				so_fd;
+	int				ea_fd;
+	int				we_fd;
+	int				c_color;
+	int				f_color;
 	char			*map[10];
 	int				first_posx;
 	int				first_posy;
@@ -93,15 +111,21 @@ typedef struct s_main_s
 
 // UTILS
 int					ft_strlen(char *str);
+int					ft_strcmp(const char *str1, const char *str2);
+int					ft_strncmp(const char *str1, const char *str2, unsigned int n);
+char				*get_next_line(int fd);
+bool				ft_getcolor(char *line, t_game *game, int key, unsigned char *octal);
+int					ft_atoi(const char *nptr);
 
 // PARSING
 bool				check_args(int argc, char **argv, int *fd);
 bool				error_args(const unsigned int error);
-bool				parser(int argc, char **argv);
+bool				parser(int argc, char **argv, t_game *game);
 char				*ft_strdup(char *str);
 char				*ft_strjoinfr(char *s1, char *s2);
 char				*ft_strchr(char *s, int c);
 char				*get_next_line(int fd);
+bool				parse_walls(int fd, t_game *game);
 
 // MLX
 void				game_loop(t_mlx *mlx, t_game *game);
