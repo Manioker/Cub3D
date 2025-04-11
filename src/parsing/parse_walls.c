@@ -6,7 +6,7 @@
 /*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 08:28:38 by rothiery          #+#    #+#             */
-/*   Updated: 2025/04/10 15:28:18 by rothiery         ###   ########.fr       */
+/*   Updated: 2025/04/11 10:08:22 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ static bool	set_fd(unsigned int key, char *line, t_game *game, unsigned char *oc
 		i++;
 		while (line[i] == ' ')
 			i++;
-		return (ft_getcolor(line + i, game, key, octal));
+		return (get_color(line + i, game, key, octal));
 	}
 	else
 	{

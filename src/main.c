@@ -6,7 +6,7 @@
 /*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 13:21:39 by anvacca           #+#    #+#             */
-/*   Updated: 2025/04/10 15:34:42 by rothiery         ###   ########.fr       */
+/*   Updated: 2025/04/11 10:07:35 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int main(int argc, char **argv)
 	t_mlx	mlx;
 	t_game game;
 
-	// if (parser(argc, argv, &game))
+	if (parser(argc, argv, &game))
 		game_loop(&mlx, &game);
 	return (0);
 }

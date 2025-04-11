@@ -6,7 +6,7 @@
 #    By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/28 13:19:10 by anvacca           #+#    #+#              #
-#    Updated: 2025/04/10 15:07:42 by rothiery         ###   ########.fr        #
+#    Updated: 2025/04/11 10:06:26 by rothiery         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,9 +42,8 @@ UTILS		:=	ft_strcmp.c		\
 				ft_strlen.c		\
 				get_next_line.c	\
 				gnl_utils.c		\
-				ft_getcolor.c	\
+				get_color.c		\
 				ft_atoi.c		\
-
 
 
 SOURCES		:= ${SRC} ${PARSING} ${UTILS} ${GAME}
@@ -56,7 +55,7 @@ MINILIBX	:=	includes/.MiniLibX
 
 # Variables
 CC			:=	cc
-CFLAGS		:=  -Wall -Wextra -Iincludes -Iincludes/.MiniLibX -O2
+CFLAGS		:=  -Wall -Wextra -Iincludes -Iincludes/.MiniLibX -O2 -g3
 LIBXFLAGS	:=	-L${MINILIBX} -lmlx -lX11 -lXext -lm
 
 # Makefile

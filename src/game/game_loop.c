@@ -6,7 +6,7 @@
 /*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 11:52:21 by anvacca           #+#    #+#             */
-/*   Updated: 2025/04/10 15:08:23 by rothiery         ###   ########.fr       */
+/*   Updated: 2025/04/11 10:07:25 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,10 @@ void init_game(t_game *game)
 	game->movement[3] = false;
 	game->movement[4] = false;
 	game->movement[5] = false;
-	game->no_path = "src/debug_no.xpm";
-	game->so_path = "src/debug_so.xpm";
-	game->ea_path = "src/debug_ea.xpm";
-	game->we_path = "src/debug_we.xpm";
+	// game->no_path = "src/debug_no.xpm";
+	// game->so_path = "src/debug_so.xpm";
+	// game->ea_path = "src/debug_ea.xpm";
+	// game->we_path = "src/debug_we.xpm";
 }
 
 void game_loop(t_mlx *mlx, t_game *game)

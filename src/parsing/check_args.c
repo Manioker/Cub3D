@@ -6,7 +6,7 @@
 /*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 13:30:15 by anvacca           #+#    #+#             */
-/*   Updated: 2025/04/10 12:10:28 by rothiery         ###   ########.fr       */
+/*   Updated: 2025/04/11 10:08:09 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ bool	check_args(int argc, char **argv, int *fd)
 	if (argc > 2)
 		return (error_args(2));
 	if (ft_strlen(argv[1]) < 5
-		|| ft_strcmp(&argv[1][(ft_strlen(argv[1]) - 4)], ".cub"))
+		|| ft_strcmp(&argv[1][ft_strlen(argv[1]) - 4], ".cub"))
 		return (error_args(3));
 	*fd = open(argv[1], __O_DIRECTORY);
 	if (*fd != -1)
