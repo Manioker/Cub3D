@@ -6,7 +6,7 @@
 /*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 08:28:38 by rothiery          #+#    #+#             */
-/*   Updated: 2025/04/11 10:08:22 by rothiery         ###   ########.fr       */
+/*   Updated: 2025/04/11 10:10:44 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static unsigned int	key_find(char *line)
 	return (ERR);
 }
 
-static bool	set_fd2(unsigned int key, char *line, t_game *game, unsigned char *octal)
+static bool	set_walls2(unsigned int key, char *line, t_game *game, unsigned char *octal)
 {
 	char	*copy;
 
@@ -55,7 +55,7 @@ static bool	set_fd2(unsigned int key, char *line, t_game *game, unsigned char *o
 	return (true);
 }
 
-static bool	set_fd(unsigned int key, char *line, t_game *game, unsigned char *octal)
+static bool	set_walls(unsigned int key, char *line, t_game *game, unsigned char *octal)
 {
 	unsigned int	i;
 
@@ -74,7 +74,7 @@ static bool	set_fd(unsigned int key, char *line, t_game *game, unsigned char *oc
 		i += 2;
 		while (line[i] == ' ')
 			i++;
-		return (set_fd2(key, line + i, game, octal));
+		return (set_walls2(key, line + i, game, octal));
 	}
 }
 
@@ -91,7 +91,7 @@ bool	parse_walls(int fd, t_game *game)
 		key = key_find(line);
 		if (key == ERR)
 			return (printf("ERR\n"), free(line), false);
-		else if (key != EMPTY && !set_fd(key, line, game, &octal))
+		else if (key != EMPTY && !set_walls(key, line, game, &octal))
 			return (printf("ERR2\n"), free(line), false);
 		line = get_next_line(fd);
 		if (octal == 126)
