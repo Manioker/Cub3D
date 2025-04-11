@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvacca <anvacca@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 11:52:21 by anvacca           #+#    #+#             */
-/*   Updated: 2025/04/09 17:27:15 by anvacca          ###   ########.fr       */
+/*   Updated: 2025/04/11 09:59:36 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,10 @@ void init_game(t_game *game)
 	game->movement[3] = false;
 	game->movement[4] = false;
 	game->movement[5] = false;
-	game->no_path = "src/debug_no.xpm";
-	game->so_path = "src/debug_so.xpm";
-	game->ea_path = "src/debug_ea.xpm";
-	game->we_path = "src/debug_we.xpm";
+	// game->no_path = "src/debug_no.xpm";
+	// game->so_path = "src/debug_so.xpm";
+	// game->ea_path = "src/debug_ea.xpm";
+	// game->we_path = "src/debug_we.xpm";
 }
 
 void game_loop(t_mlx *mlx, t_game *game)
