@@ -6,7 +6,7 @@
 #    By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/28 13:19:10 by anvacca           #+#    #+#              #
-#    Updated: 2025/04/11 10:06:26 by rothiery         ###   ########.fr        #
+#    Updated: 2025/04/14 12:58:20 by rothiery         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ PARSING		:=	check_args.c	\
 				error_args.c	\
 				parser.c		\
 				parse_walls.c	\
+				parse_map.c		\
 
 UTILS		:=	ft_strcmp.c		\
 				ft_strlen.c		\
@@ -44,7 +45,9 @@ UTILS		:=	ft_strcmp.c		\
 				gnl_utils.c		\
 				get_color.c		\
 				ft_atoi.c		\
-
+				free_utils.c	\
+				valid_map.c		\
+				set_pose.c		\
 
 SOURCES		:= ${SRC} ${PARSING} ${UTILS} ${GAME}
 OBJ_DIR		:= obj

@@ -6,7 +6,7 @@
 /*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 13:23:22 by anvacca           #+#    #+#             */
-/*   Updated: 2025/04/11 10:04:58 by rothiery         ###   ########.fr       */
+/*   Updated: 2025/04/14 12:57:37 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ typedef struct s_game
 	char			*so_path;
 	char			*we_path;
 	char			*ea_path;
-	char			*map[10];
+	char			**map;
 	float			step;
 	float			texture_pos;
 	int				texture_y;
@@ -127,12 +127,19 @@ typedef struct s_main_s
 }						t_main_s;
 
 // UTILS
+// void					free_array(char **arr);
+void					set_pose(t_game *game, bool *player_def,
+							unsigned int i, unsigned int i2);
+void					free_game(t_game *game);
 int						ft_strlen(char *str);
 int						ft_strcmp(const char *str1, const char *str2);
-int						ft_strncmp(const char *str1, const char *str2, unsigned int n);
+int						ft_strncmp(const char *str1, const char *str2,
+							unsigned int n);
 char					*get_next_line(int fd);
-bool					get_color(char *line, t_game *game, int key, unsigned char *octal);
+bool					get_color(char *line, t_game *game,
+							int key, unsigned char *octal);
 int						ft_atoi(const char *nptr);
+bool					valid_map(char **map, unsigned int i, unsigned int i2);
 
 // PARSING
 bool					check_args(int argc, char **argv, int *fd);
@@ -143,6 +150,7 @@ char					*ft_strjoinfr(char *s1, char *s2);
 char					*ft_strchr(char *s, int c);
 char					*get_next_line(int fd);
 bool					parse_walls(int fd, t_game *game);
+bool					parse_map(int fd, t_game *game);
 
 // MLX
 void					game_loop(t_mlx *mlx, t_game *game);

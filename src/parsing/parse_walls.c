@@ -6,7 +6,7 @@
 /*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 08:28:38 by rothiery          #+#    #+#             */
-/*   Updated: 2025/04/11 10:10:44 by rothiery         ###   ########.fr       */
+/*   Updated: 2025/04/14 12:59:37 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,15 @@ static unsigned int	key_find(char *line)
 	return (ERR);
 }
 
-static bool	set_walls2(unsigned int key, char *line, t_game *game, unsigned char *octal)
+static bool	set_walls2(unsigned int key, char *line, t_game *game,
+			unsigned char *octal)
 {
 	char	*copy;
 
-	copy = ft_strdup(line);
-	if (((*octal << key) & 1) == 1)
+	if ((*octal & (1 << key)) != 0)
 		return (printf("already defined\n"), false);
-	else if (key == KEY_NO)
+	copy = ft_strdup(line);
+	if (key == KEY_NO)
 		game->no_path = copy;
 	else if (key == KEY_SO)
 		game->so_path = copy;
@@ -55,7 +56,8 @@ static bool	set_walls2(unsigned int key, char *line, t_game *game, unsigned char
 	return (true);
 }
 
-static bool	set_walls(unsigned int key, char *line, t_game *game, unsigned char *octal)
+static bool	set_walls(unsigned int key, char *line, t_game *game,
+					unsigned char *octal)
 {
 	unsigned int	i;
 
@@ -93,9 +95,11 @@ bool	parse_walls(int fd, t_game *game)
 			return (printf("ERR\n"), free(line), false);
 		else if (key != EMPTY && !set_walls(key, line, game, &octal))
 			return (printf("ERR2\n"), free(line), false);
-		line = get_next_line(fd);
+		free(line);
 		if (octal == 126)
 			return (true);
+		line = get_next_line(fd);
 	}
-	return (false);
+	free(line);
+	return (printf("not enought walls\n"), false);
 }

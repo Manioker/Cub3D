@@ -1,24 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   free_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/28 13:21:39 by anvacca           #+#    #+#             */
-/*   Updated: 2025/04/14 12:59:02 by rothiery         ###   ########.fr       */
+/*   Created: 2025/04/14 10:05:35 by rothiery          #+#    #+#             */
+/*   Updated: 2025/04/14 12:28:59 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	main(int argc, char **argv)
+static void	free_array(char **arr)
 {
-	t_mlx	mlx;
-	t_game	game;
+	unsigned int	i;
 
-	if (parser(argc, argv, &game))
-		game_loop(&mlx, &game);
-	free_game(&game);
-	return (0);
+	i = 0;
+	if (!arr)
+		return ;
+	while (arr[i])
+	{
+		free(arr[i]);
+		i++;
+	}
+	free(arr);
+}
+
+void	free_game(t_game *game)
+{
+	free_array(game->map);
+	free(game->we_path);
+	free(game->ea_path);
+	free(game->no_path);
+	free(game->so_path);
 }

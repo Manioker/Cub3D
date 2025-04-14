@@ -6,7 +6,7 @@
 /*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 11:52:21 by anvacca           #+#    #+#             */
-/*   Updated: 2025/04/11 10:07:25 by rothiery         ###   ########.fr       */
+/*   Updated: 2025/04/14 13:11:00 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ void init_game(t_game *game)
 	game->map[7] = "1000000001";
 	game->map[8] = "1111111111";
 	game->map[9] = NULL;
-	game->first_posx = 7;
-	game->first_posy = 7;
+	game->first_posx = 4;
+	game->first_posy = 2;
 	game->posx = 7;
 	game->posy = 7;
 	game->dirx = -1;

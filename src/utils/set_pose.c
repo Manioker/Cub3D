@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   set_pose.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/10 15:21:00 by rothiery          #+#    #+#             */
-/*   Updated: 2025/04/11 10:08:34 by rothiery         ###   ########.fr       */
+/*   Created: 2025/04/14 12:54:13 by rothiery          #+#    #+#             */
+/*   Updated: 2025/04/14 13:05:49 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-char	*ft_strdup(char *str)
+void	set_pose(t_game *game, bool *player_def, unsigned int i,
+		unsigned int i2)
 {
-	char			*ret;
-	unsigned int	i;
-
-	i = 0;
-	ret = malloc(sizeof(char) * (ft_strlen(str) + 1));
-	while (str[i])
-	{
-		ret[i] = str[i];
-		i++;
-	}
-	ret[i] = '\0';
-	return (ret);
+	game->first_posx = i2;
+	game->first_posy = i;
+	*player_def = 1;
 }
