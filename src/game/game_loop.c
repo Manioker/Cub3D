@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anvacca <anvacca@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 11:52:21 by anvacca           #+#    #+#             */
-/*   Updated: 2025/04/14 13:11:00 by rothiery         ###   ########.fr       */
+/*   Updated: 2025/04/25 11:47:27 by anvacca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,18 @@ int cycle(t_main_s *main_s)
 
 void init_game(t_game *game)
 {
-	game->map[0] = "1111111111";
-	game->map[1] = "1000000001";
-	game->map[2] = "1000000001";
-	game->map[3] = "1000000001";
-	game->map[4] = "1000011111";
-	game->map[5] = "1000011111";
-	game->map[6] = "1000000001";
-	game->map[7] = "1000000001";
-	game->map[8] = "1111111111";
-	game->map[9] = NULL;
-	game->first_posx = 4;
-	game->first_posy = 2;
-	game->posx = 7;
-	game->posy = 7;
+	// game->map[0] = "1111111111";
+	// game->map[1] = "1000000001";
+	// game->map[2] = "1000000001";
+	// game->map[3] = "1000000001";
+	// game->map[4] = "1000011111";
+	// game->map[5] = "1000011111";
+	// game->map[6] = "1000000001";
+	// game->map[7] = "1000000001";
+	// game->map[8] = "1111111111";
+	// game->map[9] = NULL;
+	// game->posx = 5;
+	// game->posy = 2;
 	game->dirx = -1;
 	game->diry = 0;
 	game->planex = 0;

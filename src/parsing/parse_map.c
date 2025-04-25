@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anvacca <anvacca@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 10:51:26 by rothiery          #+#    #+#             */
-/*   Updated: 2025/04/14 13:00:02 by rothiery         ###   ########.fr       */
+/*   Updated: 2025/04/25 12:33:53 by anvacca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,29 +64,27 @@ static char	**get_array(unsigned int i, char **old, char *line)
 
 static bool	check_map(char **map, t_game *game)
 {
-	unsigned int	i;
-	unsigned int	i2;
+	unsigned int	y;
+	unsigned int	x;
 	bool			player_def;
 
-	i = -1;
-	i2 = -1;
-	player_def = 0;
-	while (map[++i])
+	y = -1;
+	player_def = false;
+	while (map[++y])
 	{
-		while (map[i][++i2])
+		x = -1;
+		while (map[y][++x])
 		{
-			if (map[i][i2] == '0' && !valid_map(map, i, i2))
+			if (map[y][x] == '0' && !valid_map(map, y, x))
 				return (false);
-			else if (map[i][i2] == 'N' || map[i][i2] == 'S'
-				|| map[i][i2] == 'E' || map[i][i2] == 'W')
+			else if (map[y][x] == 'N' || map[y][x] == 'S'
+				|| map[y][x] == 'E' || map[y][x] == 'W')
 			{
-				if (player_def == 1)
+				if (player_def)
 					return (printf("many players set\n"), false);
-				set_pose(game, &player_def, i, i2);
+				set_pose(game, &player_def, y, x);
 			}
-			i2++;
 		}
-		i2 = -1;
 	}
 	return (true);
 }
