@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvacca <anvacca@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 13:23:22 by anvacca           #+#    #+#             */
-/*   Updated: 2025/04/25 11:07:33 by anvacca          ###   ########.fr       */
+/*   Updated: 2025/04/25 12:52:29 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,8 @@ typedef struct s_main_s
 }						t_main_s;
 
 // UTILS
-// void					free_array(char **arr);
+void					free_array(char **arr);
+bool					no_player(bool player);
 void					set_pose(t_game *game, bool *player_def,
 							unsigned int i, unsigned int i2);
 void					free_game(t_game *game);

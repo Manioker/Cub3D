@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvacca <anvacca@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 10:51:26 by rothiery          #+#    #+#             */
-/*   Updated: 2025/04/25 12:33:53 by anvacca          ###   ########.fr       */
+/*   Updated: 2025/04/25 12:52:42 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,8 @@ static bool	check_map(char **map, t_game *game)
 		x = -1;
 		while (map[y][++x])
 		{
-			if (map[y][x] == '0' && !valid_map(map, y, x))
+			if ((map[y][x] == '0' || map[y][x] == 'N' || map[y][x] == 'E'
+				|| map[y][x] == 'W' || map[y][x] == 'S') && !valid_map(map, y, x))
 				return (false);
 			else if (map[y][x] == 'N' || map[y][x] == 'S'
 				|| map[y][x] == 'E' || map[y][x] == 'W')
@@ -86,7 +87,7 @@ static bool	check_map(char **map, t_game *game)
 			}
 		}
 	}
-	return (true);
+	return (no_player(player_def));
 }
 
 bool	parse_map(int fd, t_game *game)
@@ -108,7 +109,8 @@ bool	parse_map(int fd, t_game *game)
 		i++;
 		line = get_next_line(fd);
 	}
-	check_map(map, game);
+	if (!check_map(map, game))
+		return (free(map), false);
 	game->map = map;
 	return (true);
 }

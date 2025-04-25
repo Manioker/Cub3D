@@ -1,37 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_utils.c                                       :+:      :+:    :+:   */
+/*   no_player.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/14 10:05:35 by rothiery          #+#    #+#             */
-/*   Updated: 2025/04/25 12:48:52 by rothiery         ###   ########.fr       */
+/*   Created: 2025/04/25 12:50:45 by rothiery          #+#    #+#             */
+/*   Updated: 2025/04/25 12:51:50 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	free_array(char **arr)
+bool	no_player(bool player)
 {
-	unsigned int	i;
-
-	i = 0;
-	if (!arr)
-		return ;
-	while (arr[i])
-	{
-		free(arr[i]);
-		i++;
-	}
-	free(arr);
-}
-
-void	free_game(t_game *game)
-{
-	free_array(game->map);
-	free(game->we_path);
-	free(game->ea_path);
-	free(game->no_path);
-	free(game->so_path);
+	if (!player)
+		return (printf("no player\n"), false);
+	return (true);
 }

@@ -6,7 +6,7 @@
 #    By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/28 13:19:10 by anvacca           #+#    #+#              #
-#    Updated: 2025/04/14 12:58:20 by rothiery         ###   ########.fr        #
+#    Updated: 2025/04/25 12:52:03 by rothiery         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,7 @@ UTILS		:=	ft_strcmp.c		\
 				free_utils.c	\
 				valid_map.c		\
 				set_pose.c		\
+				no_player.c		\
 
 SOURCES		:= ${SRC} ${PARSING} ${UTILS} ${GAME}
 OBJ_DIR		:= obj
