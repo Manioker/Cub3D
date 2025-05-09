@@ -6,13 +6,13 @@
 /*   By: anvacca <anvacca@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 13:09:09 by anvacca           #+#    #+#             */
-/*   Updated: 2025/03/31 13:51:43 by anvacca          ###   ########.fr       */
+/*   Updated: 2025/05/09 11:47:58 by anvacca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	scene(t_mlx *mlx)
+void	scene(t_mlx *mlx, t_game *game)
 {
 	unsigned int	x;
 	unsigned int	y;
@@ -24,7 +24,7 @@ void	scene(t_mlx *mlx)
 		while (x < WINDOW_X)
 		{
 			*(unsigned int *)(mlx->data.addr + (y * mlx->data.line_length + x
-					* (mlx->data.bits_per_pixel / 8))) = 0x5555AA;
+					* (mlx->data.bits_per_pixel / 8))) = game->c_color;
 			x++;
 		}
 		y++;
@@ -35,7 +35,7 @@ void	scene(t_mlx *mlx)
 		while (x < WINDOW_X)
 		{
 			*(unsigned int *)(mlx->data.addr + (y * mlx->data.line_length + x
-					* (mlx->data.bits_per_pixel / 8))) = 0x55AA55;
+					* (mlx->data.bits_per_pixel / 8))) = game->f_color;
 			x++;
 		}
 		y++;

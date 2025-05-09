@@ -6,7 +6,7 @@
 /*   By: anvacca <anvacca@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 11:52:21 by anvacca           #+#    #+#             */
-/*   Updated: 2025/04/25 11:47:27 by anvacca          ###   ########.fr       */
+/*   Updated: 2025/05/09 11:46:54 by anvacca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int cycle(t_main_s *main_s)
 {
 	movements(main_s->game);
-	scene(main_s->mlx);
+	scene(main_s->mlx, main_s->game);
 	raycasting(main_s->mlx, main_s->game);
 	mlx_put_image_to_window(main_s->mlx->mlx, main_s->mlx->mlx_win, main_s->mlx->data.img, 0, 0);
 	return (0);
