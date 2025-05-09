@@ -6,7 +6,7 @@
 /*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 10:51:26 by rothiery          #+#    #+#             */
-/*   Updated: 2025/04/25 14:20:51 by rothiery         ###   ########.fr       */
+/*   Updated: 2025/05/09 11:36:31 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static bool	skip_nl(int fd, char **line)
 	*line = get_next_line(fd);
 	while (*line)
 	{
-		printf("[%s]\n", *line);
+		// printf("[%s]\n", *line);
 		if (**line != '\n' && **line != '\0')
 			return (true);
 		free(*line);
