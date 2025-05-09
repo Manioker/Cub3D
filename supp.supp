@@ -1,0 +1,67 @@
+{
+   XOpenDisplay_still_reachable
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:XOpenDisplay
+}
+
+{
+   XCB_xcb_connect_to_fd_leak
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:xcb_connect_to_fd
+   fun:xcb_connect_to_display_with_auth_info
+   fun:_XConnectXCB
+   fun:XOpenDisplay
+}
+
+{
+   XCB_xcb_connect_to_fd_realloc
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:realloc
+   fun:xcb_connect_to_fd
+   fun:xcb_connect_to_display_with_auth_info
+   fun:_XConnectXCB
+   fun:XOpenDisplay
+}
+
+{
+   X11_XFlush_XEnq_malloc
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XEnq
+   ...
+   fun:XFlush
+}
+
+{
+   X11_XWindowEvent_XEnq_malloc
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XEnq
+   ...
+   fun:XWindowEvent
+}
+
+{
+   X11_XSync_malloc
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XEnq
+   ...
+   fun:XSync
+}
+{
+   X11_XInternAtom_calloc
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:XInternAtom
+   fun:mlx_init
+}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvacca <anvacca@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 13:23:22 by anvacca           #+#    #+#             */
-/*   Updated: 2025/05/09 11:47:22 by anvacca          ###   ########.fr       */
+/*   Updated: 2025/05/09 12:41:24 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,42 +81,43 @@ typedef struct s_mlx
 
 typedef struct s_game
 {
-	int					c_color;
-	int					f_color;
-	char				*no_path;
-	char				*so_path;
-	char				*we_path;
-	char				*ea_path;
-	char				**map;
-	float				step;
-	float				texture_pos;
-	int					texture_y;
-	int					find_texture;
-	int					texture_x;
-	float				posx;
-	float				posy;
-	float				dirx;
-	float				diry;
-	float				planex;
-	float				planey;
-	float				raydirx;
-	float				raydiry;
-	int					mapx;
-	int					mapy;
-	float				sidedistx;
-	float				sidedisty;
-	float				deltadistx;
-	float				deltadisty;
-	float				perpwalldist;
-	int					stepx;
-	int					stepy;
-	int					hit;
-	int					side;
-	int					lineheigth;
-	int					drawstart;
-	int					drawend;
-	bool				movement[6];
-}						t_game;
+	int				c_color;
+	int				f_color;
+	char			*no_path;
+	char			*so_path;
+	char			*we_path;
+	char			*ea_path;
+	char			**map;
+	char			p_orient;
+	float			step;
+	float			texture_pos;
+	int				texture_y;
+	int				find_texture;
+	int				texture_x;
+	float			posx;
+	float			posy;
+	float			dirx;
+	float			diry;
+	float			planex;
+	float			planey;
+	float			raydirx;
+	float			raydiry;
+	int				mapx;
+	int				mapy;
+	float			sidedistx;
+	float			sidedisty;
+	float			deltadistx;
+	float			deltadisty;
+	float			perpwalldist;
+	int				stepx;
+	int				stepy;
+	int				hit;
+	int				side;
+	int				lineheigth;
+	int				drawstart;
+	int				drawend;
+	bool			movement[6];
+}					t_game;
 
 typedef struct s_main_s
 {
