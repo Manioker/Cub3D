@@ -6,7 +6,7 @@
 /*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 13:23:22 by anvacca           #+#    #+#             */
-/*   Updated: 2025/04/25 12:52:29 by rothiery         ###   ########.fr       */
+/*   Updated: 2025/05/09 12:03:22 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ typedef struct s_game
 	char			*we_path;
 	char			*ea_path;
 	char			**map;
+	char			p_orient;
 	float			step;
 	float			texture_pos;
 	int				texture_y;
