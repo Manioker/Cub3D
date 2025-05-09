@@ -6,7 +6,7 @@
 /*   By: anvacca <anvacca@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 11:52:21 by anvacca           #+#    #+#             */
-/*   Updated: 2025/05/09 13:12:16 by anvacca          ###   ########.fr       */
+/*   Updated: 2025/05/09 13:29:00 by anvacca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void game_loop(t_mlx *mlx, t_game *game)
 	init_game(game);
 	init_window(mlx);
 	if (!init_texture(mlx, game))
-		end_game(&main_s);
+		exit(0);
 	init_image(mlx);
 	mlx_hook(mlx->mlx_win, 02, (1L<<0), handle_key_press, &main_s);
 	mlx_hook(mlx->mlx_win, 03, (1L<<1), handle_key_release, game);
