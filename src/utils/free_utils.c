@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anvacca <anvacca@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 10:05:35 by rothiery          #+#    #+#             */
-/*   Updated: 2025/05/09 11:33:37 by rothiery         ###   ########.fr       */
+/*   Updated: 2025/05/09 12:32:32 by anvacca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,13 @@ void	free_array(char **arr)
 
 void	free_game(t_game *game)
 {
-	free(game->we_path);
-	free(game->ea_path);
-	free(game->no_path);
-	free(game->so_path);
+	free_array(game->map);
+	if (game && game->we_path)
+		free(game->we_path);
+	if (game && game->ea_path)
+		free(game->ea_path);
+	if (game && game->no_path)
+		free(game->no_path);
+	if (game && game->so_path)
+		free(game->so_path);
 }
