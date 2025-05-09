@@ -6,7 +6,7 @@
 /*   By: anvacca <anvacca@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 11:56:14 by anvacca           #+#    #+#             */
-/*   Updated: 2025/04/09 12:07:07 by anvacca          ###   ########.fr       */
+/*   Updated: 2025/05/09 13:13:39 by anvacca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	movements(t_game *game)
 	if (game->movement[3])
 		side_move(game, KEY_D, MOVE_SPEED);
 	if (game->movement[4] == true)
-		rotate(game, MOVE_SPEED);
-	if (game->movement[5] == true)
 		rotate(game, -MOVE_SPEED);
+	if (game->movement[5] == true)
+		rotate(game, MOVE_SPEED);
 }

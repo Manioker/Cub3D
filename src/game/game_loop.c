@@ -6,7 +6,7 @@
 /*   By: anvacca <anvacca@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 11:52:21 by anvacca           #+#    #+#             */
-/*   Updated: 2025/05/09 12:37:16 by anvacca          ###   ########.fr       */
+/*   Updated: 2025/05/09 13:12:16 by anvacca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,39 +21,39 @@ int cycle(t_main_s *main_s)
 	return (0);
 }
 
-static void	init_player_ns(t_game *game, char dir)
+static void	init_player_ns(t_game *game)
 {
-	if (dir == 'N')
+	if (game->p_orient == 'S')
 	{
 		game->dirx = 0;
-		game->diry = -1;
-		game->planex = 0.66;
+		game->diry = 1;  // South direction, going down
+		game->planex = -0.66;
 		game->planey = 0;
 	}
-	else if (dir == 'S')
+	else if (game->p_orient == 'N')
 	{
 		game->dirx = 0;
-		game->diry = 1;
-		game->planex = -0.66;
+		game->diry = -1;  // North direction, going up
+		game->planex = 0.66;
 		game->planey = 0;
 	}
 }
 
 static void	init_player_ew(t_game *game)
 {
-	if (game. == 'E')
+	if (game->p_orient == 'E')
 	{
-		game->dirx = 1;
+		game->dirx = 1;  // East direction, right
 		game->diry = 0;
 		game->planex = 0;
-		game->planey = 0.66;
+		game->planey = 0.66;  // Camera plane to simulate FOV
 	}
-	else if (dir == 'W')
+	else if (game->p_orient == 'W')
 	{
-		game->dirx = -1;
+		game->dirx = -1;  // West direction, left
 		game->diry = 0;
 		game->planex = 0;
-		game->planey = -0.66;
+		game->planey = -0.66;  // Camera plane to simulate FOV
 	}
 }
 
