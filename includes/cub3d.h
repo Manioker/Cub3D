@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anvacca <anvacca@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 13:23:22 by anvacca           #+#    #+#             */
-/*   Updated: 2025/04/25 12:52:29 by rothiery         ###   ########.fr       */
+/*   Updated: 2025/05/09 11:47:22 by anvacca          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ typedef enum e_type
 	KEY_F,
 	KEY_C,
 	ERR,
-}	t_type;
+}						t_type;
 
 struct					s_texture
 {
@@ -81,42 +81,42 @@ typedef struct s_mlx
 
 typedef struct s_game
 {
-	int				c_color;
-	int				f_color;
-	char			*no_path;
-	char			*so_path;
-	char			*we_path;
-	char			*ea_path;
-	char			**map;
-	float			step;
-	float			texture_pos;
-	int				texture_y;
-	int				find_texture;
-	int				texture_x;
-	float			posx;
-	float			posy;
-	float			dirx;
-	float			diry;
-	float			planex;
-	float			planey;
-	float			raydirx;
-	float			raydiry;
-	int				mapx;
-	int				mapy;
-	float			sidedistx;
-	float			sidedisty;
-	float			deltadistx;
-	float			deltadisty;
-	float			perpwalldist;
-	int				stepx;
-	int				stepy;
-	int				hit;
-	int				side;
-	int				lineheigth;
-	int				drawstart;
-	int				drawend;
-	bool			movement[6];
-}					t_game;
+	int					c_color;
+	int					f_color;
+	char				*no_path;
+	char				*so_path;
+	char				*we_path;
+	char				*ea_path;
+	char				**map;
+	float				step;
+	float				texture_pos;
+	int					texture_y;
+	int					find_texture;
+	int					texture_x;
+	float				posx;
+	float				posy;
+	float				dirx;
+	float				diry;
+	float				planex;
+	float				planey;
+	float				raydirx;
+	float				raydiry;
+	int					mapx;
+	int					mapy;
+	float				sidedistx;
+	float				sidedisty;
+	float				deltadistx;
+	float				deltadisty;
+	float				perpwalldist;
+	int					stepx;
+	int					stepy;
+	int					hit;
+	int					side;
+	int					lineheigth;
+	int					drawstart;
+	int					drawend;
+	bool				movement[6];
+}						t_game;
 
 typedef struct s_main_s
 {
@@ -127,16 +127,16 @@ typedef struct s_main_s
 // UTILS
 void					free_array(char **arr);
 bool					no_player(bool player);
-void					set_pose(t_game *game, bool *player_def,
-							unsigned int i, unsigned int i2);
+void					set_pose(t_game *game, bool *player_def, unsigned int i,
+							unsigned int i2);
 void					free_game(t_game *game);
 int						ft_strlen(char *str);
 int						ft_strcmp(const char *str1, const char *str2);
 int						ft_strncmp(const char *str1, const char *str2,
 							unsigned int n);
 char					*get_next_line(int fd);
-bool					get_color(char *line, t_game *game,
-							int key, unsigned char *octal);
+bool					get_color(char *line, t_game *game, int key,
+							unsigned char *octal);
 int						ft_atoi(const char *nptr);
 bool					valid_map(char **map, unsigned int i, unsigned int i2);
 
@@ -155,7 +155,7 @@ bool					parse_map(int fd, t_game *game);
 void					game_loop(t_mlx *mlx, t_game *game);
 bool					init_window(t_mlx *mlx);
 void					init_image(t_mlx *mlx);
-void					scene(t_mlx *mlx);
+void					scene(t_mlx *mlx, t_game *game);
 int						handle_key_press(int keycode, t_main_s *main_s);
 int						handle_key_release(int keycode, t_game *game);
 void					movements(t_game *game);
